@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Management Portfolio | Professional Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #002B5B;
+            --accent: #FF843D;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        /* --- Career Roadmap --- */
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .roadmap-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+
+        .roadmap-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- Competencies Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .skill-card h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-card li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* --- Certifications --- */
+        .cert-list {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 0;
+            border-radius: 20px;
+            margin: 50px 0;
+        }
+
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cert-item:last-child { border: none; }
+
+        .cert-info h5 { font-size: 1.1rem; }
+        .cert-info p { font-size: 0.9rem; opacity: 0.8; }
+        .cert-year { font-weight: bold; color: var(--accent); }
+
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .roadmap { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <img src="profile.jpg" alt="Professional Portrait" class="profile-img">
+        <h1>Sales Management Portfolio</h1>
+        <p class="tagline">Strategic Sales Leader with an IT foundation, specializing in Revenue Operations and AI-driven business growth.</p>
+    </div>
+</header>
+
+<div class="container">
+    
+    <h2 class="section-title">Career Roadmap</h2>
+    <div class="roadmap">
+        <div class="roadmap-card">
+            <h3>2012: The Tech Foundation</h3>
+            <p>Bachelor of Information Technology Ton Duc Thang University. Developed a robust mindset in systems thinking, data structures, and architecting technology solutions.</p>
+        </div>
+        <div class="roadmap-card">
+            <h3>2019-2021: Strategic Pivot</h3>
+            <p>Leveraged CCO and Digital Marketing certifications to pivot into strategic customer management and revenue growth optimization.</p>
+        </div>
+        <div class="roadmap-card">
+            <h3>2023-2026: Modern Leadership</h3>
+            <p>Leveraging RevOps and AI to drive team efficiency via process automation and advanced data management.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Core Competencies</h2>
+    <div class="grid">
+        <div class="skill-card">
+            <h4>Sales Execution</h4>
+            <ul>
+                <li>Enterprise B2B Sales</li>
+                <li>Consultative Selling</li>
+                <li>Contract Negotiation</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h4>GTM & Strategy</h4>
+            <ul>
+                <li>GTM Strategy Execution</li>
+                <li>ICP & Customer Segmentation</li>
+                <li>Pipeline Forecasting</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h4>Technical Edge</h4>
+            <ul>
+                <li>SaaS & AI Solutions</li>
+                <li>CRM & CX Automation</li>
+                <li>Solution Mapping</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h4>Leadership</h4>
+            <ul>
+                <li>Team Coaching</li>
+                <li>Stakeholder Management</li>
+                <li>Strategic Thinking</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cert-list">
+        <div class="container">
+            <h2 style="color: var(--white); margin-bottom: 30px;">Professional Certifications</h2>
+            
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h5>Revenue Operations (RevOps) Specialization</h5>
+                    <p>HubSpot Academy</p>
+                </div>
+                <div class="cert-year">2026</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h5>Chief Customer Officer (CCO) Program</h5>
+                    <p>PTI Education Organization</p>
+                </div>
+                <div class="cert-year">2021</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h5>AI Digital Marketing & Chatbot Automation</h5>
+                    <p>Redpola & Unica Academy</p>
+                </div>
+                <div class="cert-year">2023</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h5>Bachelor of Information Technology</h5>
+                    <p>Ton Duc Thang University</p>
+                </div>
+                <div class="cert-year">2012</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 | Professional Sales Management Portfolio</p>
+        <p>Built for Strategic Impact & Career Excellence</p>
+    </footer>
+</div>
+
+
+
+</body>
+</html>
