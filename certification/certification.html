@@ -1,1 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hong Nhi Ho | Certifications Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+--bg:#f7f8fc;
+--card:#ffffff;
+--text:#1f2933;
+--muted:#6b7280;
+--border:#e5e7eb;
+--accent:#2563eb;
+}
+
+body.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f1f5f9;
+--muted:#9ca3af;
+--border:#334155;
+}
+
+*{
+box-sizing:border-box;
+font-family:Inter,system-ui,sans-serif;
+}
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.avatar{
+width:72px;
+height:72px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--accent);
+}
+
+h1{font-size:2.2rem;margin:0;}
+.subtitle{color:var(--muted);margin-top:4px;}
+
+.controls{display:flex;gap:10px;}
+
+.toggle{
+padding:8px 14px;
+border-radius:10px;
+border:1px solid var(--border);
+background:var(--card);
+cursor:pointer;
+}
+
+/* FILTER */
+.filters{
+margin:40px 0 15px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.filter-btn{
+padding:8px 16px;
+border-radius:999px;
+border:1px solid var(--border);
+background:var(--card);
+cursor:pointer;
+}
+
+.filter-btn.active{
+background:var(--accent);
+color:white;
+}
+
+/* SEARCH */
+.search-box{
+width:100%;
+max-width:320px;
+padding:10px 14px;
+border-radius:10px;
+border:1px solid var(--border);
+background:var(--card);
+color:var(--text);
+margin-bottom:12px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+}
+
+.card{
+background:var(--card);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+transition:.35s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-6px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card-body{padding:16px;}
+.cert-title{font-weight:600;}
+.cert-org,.cert-year{
+color:var(--muted);
+font-size:14px;
+margin-top:4px;
+}
+
+/* SECTION TITLES */
+.section-title{
+margin-top:80px;
+margin-bottom:20px;
+font-size:1.6rem;
+}
+
+/* CONTACT */
+.contact{
+margin-top:80px;
+background:var(--card);
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.contact form{
+display:grid;
+gap:15px;
+max-width:500px;
+}
+
+.contact input,
+.contact textarea{
+padding:12px 14px;
+border-radius:10px;
+border:1px solid var(--border);
+background:var(--bg);
+color:var(--text);
+}
+
+.contact button{
+padding:12px;
+border:none;
+border-radius:10px;
+background:var(--accent);
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.modal img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* PRINT */
+@media print{
+.toggle,.filters,#searchInput,#sortYear,.contact{
+display:none;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<div class="profile">
+<img src="avatar.jpg" class="avatar">
+<div>
+<h1>Certifications Portfolio</h1>
+<div class="subtitle">Hong Nhi Ho</div>
+</div>
+</div>
+
+<div class="controls">
+<button class="toggle" onclick="toggleTheme()">🌙 / ☀</button>
+<button class="toggle" onclick="downloadPDF()">⬇ Download PDF</button>
+</div>
+</header>
+
+<!-- FILTER -->
+<div class="filters">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="sales">Sales & Revenue</button>
+<button class="filter-btn" data-filter="ai">AI & Sales Tech</button>
+<button class="filter-btn" data-filter="marketing">Digital Marketing</button>
+</div>
+
+<input id="searchInput" class="search-box"
+placeholder="Search by certificate name or organization...">
+
+<select id="sortYear" class="search-box">
+<option value="desc">Sort by Year (Newest)</option>
+<option value="asc">Sort by Year (Oldest)</option>
+</select>
+
+<!-- CERTIFICATIONS GRID -->
+<div class="grid">
+
+<div class="card" data-category="sales">
+<img src="certificates/hubspot_revops.jpg">
+<div class="card-body">
+<div class="cert-title">HubSpot Revenue Operations Certification</div>
+<div class="cert-org">HubSpot Academy</div>
+<div class="cert-year">2026</div>
+</div>
+</div>
+
+<div class="card" data-category="sales">
+<img src="certificates/sales_enablement.jpg">
+<div class="card-body">
+<div class="cert-title">Sales Enablement Certification</div>
+<div class="cert-org">HubSpot Academy</div>
+<div class="cert-year">2026</div>
+</div>
+</div>
+
+<div class="card" data-category="sales">
+<img src="certificates/sales_management.jpg">
+<div class="card-body">
+<div class="cert-title">Sales Management Certification</div>
+<div class="cert-org">HubSpot Academy</div>
+<div class="cert-year">2026</div>
+</div>
+</div>
+
+<div class="card" data-category="sales">
+<img src="certificates/cco_program.jpg">
+<div class="card-body">
+<div class="cert-title">Chief Customer Officer (CCO) Program</div>
+<div class="cert-org">PTI Education Organization</div>
+<div class="cert-year">2021</div>
+</div>
+</div>
+
+<div class="card" data-category="ai">
+<img src="certificates/ai_marketing.jpg">
+<div class="card-body">
+<div class="cert-title">AI Digital Marketing</div>
+<div class="cert-org">Redpola Digital Platform</div>
+<div class="cert-year">2023</div>
+</div>
+</div>
+
+<div class="card" data-category="ai">
+<img src="certificates/chatbot.jpg">
+<div class="card-body">
+<div class="cert-title">Chatbot Automation for Sales & Customer Service</div>
+<div class="cert-org">Unica Academy</div>
+<div class="cert-year">2023</div>
+</div>
+</div>
+
+<div class="card" data-category="ai">
+<img src="certificates/project_stakeholder.jpg">
+<div class="card-body">
+<div class="cert-title">Managing Project Stakeholders</div>
+<div class="cert-org">LinkedIn Learning</div>
+<div class="cert-year">2026</div>
+</div>
+</div>
+
+<div class="card" data-category="marketing">
+<img src="certificates/diploma.jpg">
+<div class="card-body">
+<div class="cert-title">Digital Marketing Diploma</div>
+<div class="cert-org">Kent International College</div>
+<div class="cert-year">2019</div>
+</div>
+</div>
+
+</div>
+
+<!-- ACHIEVEMENTS -->
+<h2 class="section-title">Achievements & Awards</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="achievements/top_sales1.jpg">
+<div class="card-body">
+<div class="cert-title">Top Sales Performer Award</div>
+<div class="cert-year">2020</div>
+</div>
+</div>
+
+<div class="card">
+<img src="achievements/top_sales2.jpg">
+<div class="card-body">
+<div class="cert-title">Top Sales Performer Awards</div>
+<div class="cert-year">2020</div>
+</div>
+</div>
+
+<div class="card">
+<img src="achievements/kpi_excellence.jpg">
+<div class="card-body">
+<div class="cert-title">90%+ KPI Achievement Recognition</div>
+<div class="cert-year">2023</div>
+</div>
+</div>
+
+</div>
+
+<!-- CONTACT -->
+<section class="contact">
+<h2>Contact Me</h2>
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button type="submit">Send Message</button>
+</form>
+</section>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<img id="modalImg">
+</div>
+
+<script>
+const cards=document.querySelectorAll(".card");
+
+/* THEME */
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
+
+/* FILTER */
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+btn.onclick=()=>{
+document.querySelector(".filter-btn.active").classList.remove("active");
+btn.classList.add("active");
+let f=btn.dataset.filter;
+cards.forEach(c=>{
+if(!c.dataset.category) return;
+c.style.display=(f==="all"||c.dataset.category===f)?"block":"none";
+});
+};
+});
+
+/* POPUP */
+cards.forEach(card=>{
+card.onclick=()=>{
+modal.style.display="flex";
+modalImg.src=card.querySelector("img").src;
+};
+});
+modal.onclick=()=>modal.style.display="none";
+
+/* SEARCH */
+searchInput.oninput=()=>{
+let k=searchInput.value.toLowerCase();
+cards.forEach(c=>{
+let title=c.querySelector(".cert-title")?.innerText.toLowerCase()||"";
+let org=c.querySelector(".cert-org")?.innerText.toLowerCase()||"";
+c.style.display=(title.includes(k)||org.includes(k))?"block":"none";
+});
+};
+
+/* SORT */
+sortYear.onchange=()=>{
+let grid=document.querySelectorAll(".grid")[0];
+let arr=[...grid.children];
+arr.sort((a,b)=>{
+let y1=parseInt(a.querySelector(".cert-year")?.innerText||0);
+let y2=parseInt(b.querySelector(".cert-year")?.innerText||0);
+return sortYear.value==="desc"?y2-y1:y1-y2;
+});
+arr.forEach(c=>grid.appendChild(c));
+};
+
+/* PDF */
+function downloadPDF(){
+window.print();
+}
+</script>
+
+</body>
+</html>
 
