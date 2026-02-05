@@ -341,6 +341,67 @@ color:white;
 .roadmap-card.highlight .year{
 color:white;
 }
+/* ====== MERGED ROADMAP ====== */
+
+.roadmap-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+margin-bottom:80px;
+}
+
+.roadmap-card{
+background:var(--bg-soft);
+padding:26px;
+border-radius:14px;
+border-left:6px solid var(--primary);
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.roadmap-card:hover{
+transform:translateY(-6px);
+}
+
+.roadmap-card h3{
+color:var(--primary);
+margin-bottom:12px;
+font-size:1.1rem;
+}
+
+.roadmap-card ul{
+list-style:none;
+padding-left:0;
+}
+
+.roadmap-card li{
+margin-bottom:8px;
+padding-left:18px;
+position:relative;
+}
+
+.roadmap-card li::before{
+content:"•";
+position:absolute;
+left:0;
+color:var(--accent);
+font-weight:bold;
+}
+
+.highlight-card{
+background:linear-gradient(135deg,var(--primary),#0b3b70);
+color:white;
+border-left:none;
+}
+
+.highlight-card h3,
+.highlight-card li{
+color:white;
+}
+
+.highlight-card li::before{
+color:#ffd39a;
+}
 
 
 </style>
