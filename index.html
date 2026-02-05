@@ -54,16 +54,36 @@ text-align:center;
 background:linear-gradient(135deg,var(--bg-soft),#e5e7eb);
 }
 
-.profile-img{
-width:150px;
-height:150px;
-border-radius:50%;
-border:5px solid white;
-margin-bottom:20px;
+/* ===== AVATAR ===== */
+
+.avatar-wrap{
+display:flex;
+justify-content:center;
 }
+
+.profile-img{
+width:160px;
+height:160px;
+border-radius:50%;
+padding:5px;
+background:linear-gradient(135deg,#FF843D,#4da3ff);
+margin-bottom:22px;
+box-shadow:0 12px 30px rgba(0,0,0,0.18);
+transition:0.4s;
+object-fit:cover;
+}
+
+.profile-img:hover{
+transform:scale(1.05);
+box-shadow:0 18px 45px rgba(0,0,0,0.25);
+}
+
+/* ================= TEXT ================= */
 
 h1{font-size:2.4rem;color:var(--primary)}
 .tagline{color:var(--text-light);margin:12px 0 25px}
+
+/* ================= TOP ACTIONS ================= */
 
 .top-actions{
 display:flex;
@@ -190,7 +210,7 @@ font-weight:700;
 color:var(--accent);
 }
 
-/* ================= CERTIFICATIONS ================= */
+/* ================= CERT ================= */
 
 .cert-section{
 background:var(--primary);
@@ -210,13 +230,7 @@ text-decoration:none;
 color:white;
 }
 
-.cert-link:hover{
-background:rgba(255,255,255,.07);
-padding-left:10px;
-transition:.2s;
-}
-
-.cert-year{color:var(--accent);font-weight:600}
+.cert-year{color:var(--accent)}
 
 /* ================= FOOTER ================= */
 
@@ -234,18 +248,23 @@ color:var(--text-light);
 <header>
 <div class="container">
 
+<div class="avatar-wrap">
 <img src="profile.jpg" class="profile-img">
+</div>
 
-<h1>Sales Management Portfolio</h1>
+<h1 data-en="Sales Management Portfolio"
+    data-vi="Hồ Sơ Quản Lý Bán Hàng">
+Sales Management Portfolio
+</h1>
 
-<p class="tagline">
+<p class="tagline"
+data-en="Strategic Sales Leader | Revenue Operations | AI-Driven Growth"
+data-vi="Lãnh đạo Kinh doanh Chiến lược | RevOps | Tăng trưởng nhờ AI">
 Strategic Sales Leader | Revenue Operations | AI-Driven Growth
 </p>
 
 <div class="top-actions">
-<a href="./cv.pdf" class="cv-btn" target="_blank" rel="noopener">
-Download CV
-</a>
+<a href="./cv.pdf" class="cv-btn" target="_blank">Download CV</a>
 <button id="langToggle" class="toggle-btn">EN</button>
 <button id="themeToggle" class="toggle-btn">🌙</button>
 </div>
@@ -255,20 +274,34 @@ Download CV
 
 <div class="container">
 
-<h2 class="section-title">Career Roadmap</h2>
+<h2 class="section-title"
+data-en="Career Roadmap"
+data-vi="Lộ Trình Sự Nghiệp">Career Roadmap</h2>
 
 <div class="grid">
-<div class="card">2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University</div>
-<div class="card">2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing</div>
-<div class="card">2023–2026 – RevOps & AI: Automation, CRM, Optimization</div>
+<div class="card" data-en="2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University"
+data-vi="2012 – Nền tảng CNTT: Cử nhân CNTT – ĐH Tôn Đức Thắng">
+2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University
 </div>
 
-<h2 class="section-title">Core Competencies</h2>
+<div class="card" data-en="2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing"
+data-vi="2019–2021 – Chuyển hướng chiến lược: Khách hàng & Digital Marketing">
+2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing
+</div>
+
+<div class="card" data-en="2023–2026 – RevOps & AI: Automation, CRM, Optimization"
+data-vi="2023–2026 – RevOps & AI: Tự động hóa, CRM, Tối ưu">
+2023–2026 – RevOps & AI: Automation, CRM, Optimization
+</div>
+</div>
+
+<h2 class="section-title"
+data-en="Core Competencies"
+data-vi="Năng Lực Cốt Lõi">Core Competencies</h2>
 
 <div class="grid">
-
 <div class="card">
-<h4 style="color:var(--accent)">Sales Execution</h4>
+<h4>Sales Execution</h4>
 <ul>
 <li>Enterprise B2B Sales</li>
 <li>Consultative Selling</li>
@@ -277,107 +310,80 @@ Download CV
 </div>
 
 <div class="card">
-<h4 style="color:var(--accent)">GTM & Strategy</h4>
+<h4>GTM & Strategy</h4>
 <ul>
-<li>GTM Strategy Execution</li>
+<li>GTM Strategy</li>
 <li>ICP & Segmentation</li>
-<li>Pipeline Forecasting</li>
+<li>Forecasting</li>
 </ul>
 </div>
 
 <div class="card">
-<h4 style="color:var(--accent)">Technical Edge</h4>
+<h4>Technical Edge</h4>
 <ul>
-<li>SaaS & AI Solutions</li>
-<li>CRM & CX Automation</li>
+<li>SaaS & AI</li>
+<li>CRM Automation</li>
 <li>Solution Mapping</li>
 </ul>
 </div>
 
 <div class="card">
-<h4 style="color:var(--accent)">Leadership</h4>
+<h4>Leadership</h4>
 <ul>
 <li>Team Coaching</li>
-<li>Stakeholder Management</li>
+<li>Stakeholder</li>
 <li>Strategic Thinking</li>
 </ul>
 </div>
-
 </div>
 
-<h2 class="section-title">Capability Evolution Journey</h2>
+<h2 class="section-title"
+data-en="Capability Evolution Journey"
+data-vi="Hành Trình Phát Triển Năng Lực">
+Capability Evolution Journey
+</h2>
 
 <div class="journey">
-
-<div class="journey-step">IT Graduate<span>Ton Duc Thang University</span></div>
+<div class="journey-step">IT Graduate</div>
 <div class="arrow">→</div>
-
-<div class="journey-step">Telemarketing Leader<span>Paradise Bay Resort</span></div>
+<div class="journey-step">Telemarketing Leader</div>
 <div class="arrow">→</div>
-
-<div class="journey-step">Online Sales Leader / Sales Ops Lead<span>Lozi JSC</span></div>
+<div class="journey-step">Sales Ops Lead</div>
 <div class="arrow">→</div>
-
-<div class="journey-step">Branch Manager / Sales & CX Manager<span>Han Thien Phuc</span></div>
+<div class="journey-step">Branch Manager</div>
 <div class="arrow">→</div>
-
-<div class="journey-step">Branch Manager / Business Manager<span>SaleMall JSC</span></div>
+<div class="journey-step">RevOps Leader</div>
 <div class="arrow">→</div>
-
-<div class="journey-step">Revenue Operations Leader (RevOps)<span>Process • CRM • Automation</span></div>
-<div class="arrow">→</div>
-
-<div class="journey-step highlight">Business Owner / Revenue Leader<span>Growth • Profit • Strategy</span></div>
-
+<div class="journey-step highlight">Business Owner</div>
 </div>
 
-<h2 class="section-title">Professional Certifications</h2>
-
-<div class="cert-section">
-<div class="container">
-
-<a class="cert-link" href="https://hongnhiho.github.io/certification/" target="_blank">
-<span>Revenue Operations (RevOps) – HubSpot</span>
-<span class="cert-year">2026</span>
-</a>
-
-<a class="cert-link" href="https://hongnhiho.github.io/certification/" target="_blank">
-<span>Chief Customer Officer – PTI</span>
-<span class="cert-year">2021</span>
-</a>
-
-<a class="cert-link" href="https://hongnhiho.github.io/certification/"_blank">
-<span>AI Digital Marketing & Chatbot Automation</span>
-<span class="cert-year">2023</span>
-</a>
-
-</div>
 </div>
 
 <footer>
 <p>© 2026 Hong Nhi Ho</p>
 </footer>
 
-</div>
-
-<!-- DARK MODE -->
+<!-- ================= SCRIPTS ================= -->
 
 <script>
+// DARK MODE
 const themeBtn=document.getElementById("themeToggle");
-if(localStorage.getItem("theme")==="dark"){
-document.body.classList.add("dark");
-themeBtn.textContent="☀️";
-}
 themeBtn.onclick=()=>{
 document.body.classList.toggle("dark");
-if(document.body.classList.contains("dark")){
-localStorage.setItem("theme","dark");
-themeBtn.textContent="☀️";
-}else{
-localStorage.setItem("theme","light");
-themeBtn.textContent="🌙";
-}
-}
+};
+
+// LANGUAGE TOGGLE
+let currentLang="en";
+const langBtn=document.getElementById("langToggle");
+
+langBtn.onclick=()=>{
+currentLang=currentLang==="en"?"vi":"en";
+langBtn.textContent=currentLang.toUpperCase();
+
+document.querySelectorAll("[data-en]").forEach(el=>{
+el.textContent = el.dataset[currentLang];
+});
+};
 </script>
 
 </body>
