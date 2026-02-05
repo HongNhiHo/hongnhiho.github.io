@@ -413,6 +413,57 @@ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 justify-content:center;
 }
+/* ===== CERTIFICATIONS ALIGN FIX ===== */
+
+.certifications-wrapper{
+max-width:1100px;
+margin:0 auto;
+}
+
+.roadmap-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:26px;
+justify-content:center;
+}
+
+.cert-title-link{
+color:inherit;
+text-decoration:none;
+}
+
+.cert-title-link:hover{
+color:var(--accent);
+}
+
+/* smoother cards */
+
+.roadmap-card{
+background:var(--bg-soft);
+padding:26px;
+border-radius:14px;
+border-left:6px solid var(--primary);
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+transition:.3s ease;
+}
+
+.roadmap-card:hover{
+transform:translateY(-6px);
+}
+
+.highlight-card{
+background:linear-gradient(135deg,var(--primary),#0b3b70);
+border-left:none;
+}
+
+.highlight-card h3,
+.highlight-card li{
+color:white;
+}
+
+.highlight-card li::before{
+color:#ffd39a;
+}
 
 
 
@@ -534,15 +585,19 @@ Capability Evolution Journey
 </div>
 </div>
     <div class="container">
- <a class="cert-link" href="https://hongnhiho.github.io/certification/" target="_blank">
-     
-<h2 class="section-title">Professional Certifications</h2>
+
+<h2 class="section-title">
+<a class="cert-title-link"
+href="https://hongnhiho.github.io/certification/"
+target="_blank">
+Professional Certifications
 </a>
+</h2>
+
 <div class="certifications-wrapper">
 
 <div class="roadmap-grid">
 
-<!-- 1 -->
 <div class="roadmap-card">
 <h3>🎓 Education Foundation</h3>
 <ul>
@@ -551,7 +606,6 @@ Capability Evolution Journey
 </ul>
 </div>
 
-<!-- 2 -->
 <div class="roadmap-card">
 <h3>📈 Digital & Marketing Expansion</h3>
 <ul>
@@ -560,7 +614,6 @@ Capability Evolution Journey
 </ul>
 </div>
 
-<!-- 3 -->
 <div class="roadmap-card">
 <h3>💼 Sales & Revenue Operations</h3>
 <ul>
@@ -570,7 +623,6 @@ Capability Evolution Journey
 </ul>
 </div>
 
-<!-- 4 -->
 <div class="roadmap-card">
 <h3>🤖 AI & Sales Technology</h3>
 <ul>
@@ -579,7 +631,6 @@ Capability Evolution Journey
 </ul>
 </div>
 
-<!-- 5 -->
 <div class="roadmap-card highlight-card">
 <h3>👑 Leadership & Strategy</h3>
 <ul>
@@ -587,7 +638,10 @@ Capability Evolution Journey
 <li>Managing Project Stakeholders – LinkedIn Learning (2026)</li>
 </ul>
 </div>
+
 </div>
+</div>
+
 </div>
 
 
