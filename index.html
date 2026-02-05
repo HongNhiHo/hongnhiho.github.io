@@ -267,6 +267,80 @@ transition:.2s;
 color:var(--accent);
 font-weight:600;
 }
+/* ================= ROADMAP ================= */
+
+.roadmap-wrapper{
+margin:90px 0;
+}
+
+.roadmap-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+}
+
+.roadmap-card{
+background:var(--bg-soft);
+border-radius:16px;
+padding:26px 22px;
+position:relative;
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.roadmap-card:hover{
+transform:translateY(-6px);
+}
+
+.roadmap-card h3{
+color:var(--primary);
+margin-top:10px;
+font-size:1.1rem;
+}
+
+.roadmap-card h4{
+color:var(--accent);
+font-size:.95rem;
+margin:6px 0;
+}
+
+.roadmap-card p{
+font-size:.9rem;
+color:var(--text-light);
+}
+
+.year{
+font-weight:700;
+color:var(--primary);
+margin-bottom:6px;
+}
+
+.step-badge{
+position:absolute;
+top:-14px;
+left:20px;
+background:var(--accent);
+color:white;
+width:34px;
+height:34px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+}
+
+.roadmap-card.highlight{
+background:linear-gradient(135deg,var(--primary),#1e3a8a);
+color:white;
+}
+
+.roadmap-card.highlight h3,
+.roadmap-card.highlight h4,
+.roadmap-card.highlight p,
+.roadmap-card.highlight .year{
+color:white;
+}
 
 
 </style>
@@ -412,6 +486,77 @@ Capability Evolution Journey
   </div>
 </div>
 
+<section class="roadmap-wrapper">
+
+<h2 class="section-title">Career Roadmap</h2>
+
+<div class="roadmap-grid">
+
+<!-- 1 -->
+<div class="roadmap-card">
+<div class="step-badge">1</div>
+<h3>IT Graduate</h3>
+<h4>Technology Foundation</h4>
+<p class="year">2012</p>
+<p>
+Bachelor of Information Technology – Ton Duc Thang University (Good Distinction).  
+Strong foundation in systems thinking, data structures and technology architecture.
+</p>
+</div>
+
+<!-- 2 -->
+<div class="roadmap-card">
+<div class="step-badge">2</div>
+<h3>Online Marketing Specialist</h3>
+<h4>Digital Marketing & Growth</h4>
+<p class="year">2019</p>
+<p>
+Digital Marketing Diploma – Kent International College.  
+Built marketing fundamentals, campaign execution and growth mindset.
+</p>
+</div>
+
+<!-- 3 -->
+<div class="roadmap-card">
+<div class="step-badge">3</div>
+<h3>Customer & Sales Leader</h3>
+<h4>Customer-Centric Leadership</h4>
+<p class="year">2021</p>
+<p>
+Chief Customer Officer (CCO) Program – PTI.  
+Customer strategy, sales management and revenue leadership.
+</p>
+</div>
+
+<!-- 4 -->
+<div class="roadmap-card">
+<div class="step-badge">4</div>
+<h3>RevOps Specialist</h3>
+<h4>AI & Sales Technology</h4>
+<p class="year">2023</p>
+<p>
+AI Digital Marketing – Redpola  
+Chatbot Automation – Unica Academy  
+Applied AI into sales & customer operations.
+</p>
+</div>
+
+<!-- 5 -->
+<div class="roadmap-card highlight">
+<div class="step-badge">5</div>
+<h3>Revenue Leader</h3>
+<h4>Sales & Revenue Operations Excellence</h4>
+<p class="year">2026</p>
+<p>
+HubSpot Revenue Operations Certification  
+Sales Enablement Certification  
+Sales Management Certification  
+Managing Project Stakeholders – LinkedIn Learning
+</p>
+</div>
+
+</div>
+</section>
 
 <footer>
 <p>© 2026 Hong Nhi Ho</p>
