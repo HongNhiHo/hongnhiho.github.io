@@ -76,6 +76,19 @@ background:var(--card);
 cursor:pointer;
 }
 
+/* ATS SUMMARY (hidden UI) */
+.ats-summary{display:none;}
+
+@media print{
+.ats-summary{
+display:block;
+margin-bottom:40px;
+}
+.toggle,.filters,#searchInput,#sortYear,.contact{
+display:none;
+}
+}
+
 /* FILTER */
 .filters{
 margin:40px 0 15px;
@@ -123,7 +136,6 @@ overflow:hidden;
 box-shadow:0 10px 25px rgba(0,0,0,.06);
 transition:.35s;
 cursor:pointer;
-
 }
 
 .card:hover{
@@ -131,10 +143,21 @@ transform:translateY(-6px) scale(1.02);
 box-shadow:0 20px 40px rgba(0,0,0,.12);
 }
 
-.card img{
+.cert-image{
 width:100%;
-height:260px;
-object-fit: contain;
+height:300px;
+overflow:hidden;
+border-radius:12px 12px 0 0;
+background:#f2f2f2;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.cert-image img{
+width:100%;
+height:100%;
+object-fit:contain;
 background:#fff;
 }
 
@@ -146,7 +169,14 @@ font-size:14px;
 margin-top:4px;
 }
 
-/* SECTION TITLES */
+.cert-impact{
+font-size:13px;
+color:var(--muted);
+margin-top:8px;
+line-height:1.4;
+}
+
+/* SECTION */
 .section-title{
 margin-top:80px;
 margin-bottom:20px;
@@ -205,57 +235,6 @@ max-width:90%;
 max-height:90%;
 border-radius:10px;
 }
-
-/* PRINT */
-@media print{
-.toggle,.filters,#searchInput,#sortYear,.contact{
-display:none;
-}
-}
-.cert-image {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 12px 12px 0 0;
-    background: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cert-image img {
-    width: 100%;
-    height: 100%;
-    /*object-fit: cover;*/
-    object-position: top;
-    display: block;
-    object-fit: contain;
-    background:#fff;
-}
-/* ========== ACHIEVEMENTS IMAGE FIX ========== */
-
-.achievement-image{
-  width:90%;
-  height:300px;
-  overflow:hidden;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f3f4f6;
-}
-
-
-.achievement-image img{
-  width:100%;
-  height:100%;
-  object-fit: contain;
-  object-position:center center;
-  display:block;
-}
-
-
-  
 </style>
 </head>
 
@@ -278,6 +257,23 @@ display:none;
 </div>
 </header>
 
+<!-- ATS SUMMARY -->
+<section class="ats-summary">
+<h2>Professional Certification Summary</h2>
+<p>
+Sales Operations & Revenue-focused professional with strong expertise in HubSpot CRM,
+Inbound Sales methodology, sales enablement, sales management, reporting & analytics,
+and revenue operations.
+</p>
+<ul>
+<li>HubSpot Revenue Operations Certification</li>
+<li>HubSpot Inbound Sales Certification</li>
+<li>HubSpot Reporting Certification</li>
+<li>Sales Enablement & Sales Management</li>
+<li>AI-powered Sales & Marketing Automation</li>
+</ul>
+</section>
+
 <!-- FILTER -->
 <div class="filters">
 <button class="filter-btn active" data-filter="all">All</button>
@@ -298,45 +294,69 @@ placeholder="Search by certificate name or organization...">
 <div class="grid">
 
 <div class="card" data-category="sales">
-<div class="cert-image">
-   <img src="hubspot_revops.jpg">
-</div>
+<div class="cert-image"><img src="hubspot_revops.jpg"></div>
 <div class="card-body">
 <div class="cert-title">HubSpot Revenue Operations Certification</div>
 <div class="cert-org">HubSpot Academy</div>
 <div class="cert-year">2026</div>
+<div class="cert-impact">
+Aligning marketing, sales, and customer success through data-driven revenue operations.
+</div>
 </div>
 </div>
 
 <div class="card" data-category="sales">
-    <div class="cert-image">
-<img src="sales_enablement.jpg">
+<div class="cert-image"><img src="hubspot_inbound_sales.jpg"></div>
+<div class="card-body">
+<div class="cert-title">Inbound Sales Certification</div>
+<div class="cert-org">HubSpot Academy</div>
+<div class="cert-year">2026</div>
+<div class="cert-impact">
+Applying buyer-centric sales methodology to improve lead qualification and pipeline velocity.
+</div>
+</div>
 </div>
 
+<div class="card" data-category="sales">
+<div class="cert-image"><img src="hubspot_reporting.jpg"></div>
+<div class="card-body">
+<div class="cert-title">HubSpot Reporting Certification</div>
+<div class="cert-org">HubSpot Academy</div>
+<div class="cert-year">2026</div>
+<div class="cert-impact">
+Building sales and revenue dashboards to support forecasting and performance tracking.
+</div>
+</div>
+</div>
+
+<div class="card" data-category="sales">
+<div class="cert-image"><img src="sales_enablement.jpg"></div>
 <div class="card-body">
 <div class="cert-title">Sales Enablement Certification</div>
 <div class="cert-org">HubSpot Academy</div>
 <div class="cert-year">2026</div>
+<div class="cert-impact">
+Designing sales enablement strategies, playbooks, and tools to improve sales productivity
+and team performance.
+</div>
 </div>
 </div>
 
 <div class="card" data-category="sales">
-<div class="cert-image">
-<img src="sales_management.jpg">
-</div>
-
+<div class="cert-image"><img src="sales_management.jpg"></div>
 <div class="card-body">
 <div class="cert-title">Sales Management Certification</div>
 <div class="cert-org">HubSpot Academy</div>
 <div class="cert-year">2026</div>
+<div class="cert-impact">
+Managing sales teams, performance metrics, and coaching processes to drive consistent
+revenue growth.
+</div>
 </div>
 </div>
 
 <div class="card" data-category="sales">
-    <div class="cert-image">
-<img src="cco_program.jpg">
-</div>
-
+<div class="cert-image"><img src="cco_program.jpg"></div>
 <div class="card-body">
 <div class="cert-title">Chief Customer Officer (CCO) Program</div>
 <div class="cert-org">PTI Education Organization</div>
@@ -345,9 +365,7 @@ placeholder="Search by certificate name or organization...">
 </div>
 
 <div class="card" data-category="ai">
-        <div class="cert-image">
-<img src="ai_marketing.jpg">
-</div>
+<div class="cert-image"><img src="ai_marketing.jpg"></div>
 <div class="card-body">
 <div class="cert-title">AI Digital Marketing</div>
 <div class="cert-org">Redpola Digital Platform</div>
@@ -356,9 +374,7 @@ placeholder="Search by certificate name or organization...">
 </div>
 
 <div class="card" data-category="ai">
-    <div class="cert-image">
-<img src="chatbot.jpg">
-</div>
+<div class="cert-image"><img src="chatbot.jpg"></div>
 <div class="card-body">
 <div class="cert-title">Chatbot Automation for Sales & Customer Service</div>
 <div class="cert-org">Unica Academy</div>
@@ -366,27 +382,14 @@ placeholder="Search by certificate name or organization...">
 </div>
 </div>
 
-<div class="card" data-category="ai">
-    <div class="cert-image">
-<img src="project_stakeholder.jpg">
-</div>
-<div class="card-body">
-<div class="cert-title">Managing Project Stakeholders</div>
-<div class="cert-org">LinkedIn Learning</div>
-<div class="cert-year">2026</div>
-</div>
-</div>
-
 <div class="card" data-category="marketing">
-        <div class="cert-image">
-<img src="diploma.jpg">
-</div>
+<div class="cert-image"><img src="diploma.jpg"></div>
 <div class="card-body">
 <div class="cert-title">Digital Marketing Diploma</div>
 <div class="cert-org">Kent International College</div>
 <div class="cert-year">2019</div>
 </div>
-</div>*/
+</div>
 
 </div>
 
@@ -394,11 +397,8 @@ placeholder="Search by certificate name or organization...">
 <h2 class="section-title">Achievements & Awards</h2>
 
 <div class="grid">
-
 <div class="card">
-           <div class="cert-image">
-<img src="top_sales1.jpg">
-</div>
+<div class="cert-image"><img src="top_sales1.jpg"></div>
 <div class="card-body">
 <div class="cert-title">Top Sales Performer Award</div>
 <div class="cert-year">2020</div>
@@ -406,20 +406,14 @@ placeholder="Search by certificate name or organization...">
 </div>
 
 <div class="card">
-    <div class="cert-image">
-<img src="top_sales2.jpg">
-</div>
+<div class="cert-image"><img src="top_sales2.jpg"></div>
 <div class="card-body">
 <div class="cert-title">Top Sales Performer Awards</div>
 <div class="cert-year">2020</div>
 </div>
 </div>
-
 </div>
 
-</div>
-
-<!-- CONTACT -->
 <section class="contact">
 <h2>Contact Me</h2>
 <form>
@@ -432,7 +426,6 @@ placeholder="Search by certificate name or organization...">
 
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
 <img id="modalImg">
 </div>
@@ -440,12 +433,10 @@ placeholder="Search by certificate name or organization...">
 <script>
 const cards=document.querySelectorAll(".card");
 
-/* THEME */
 function toggleTheme(){
 document.body.classList.toggle("dark");
 }
 
-/* FILTER */
 document.querySelectorAll(".filter-btn").forEach(btn=>{
 btn.onclick=()=>{
 document.querySelector(".filter-btn.active").classList.remove("active");
@@ -458,7 +449,6 @@ c.style.display=(f==="all"||c.dataset.category===f)?"block":"none";
 };
 });
 
-/* POPUP */
 cards.forEach(card=>{
 card.onclick=()=>{
 modal.style.display="flex";
@@ -467,7 +457,6 @@ modalImg.src=card.querySelector("img").src;
 });
 modal.onclick=()=>modal.style.display="none";
 
-/* SEARCH */
 searchInput.oninput=()=>{
 let k=searchInput.value.toLowerCase();
 cards.forEach(c=>{
@@ -477,7 +466,6 @@ c.style.display=(title.includes(k)||org.includes(k))?"block":"none";
 });
 };
 
-/* SORT */
 sortYear.onchange=()=>{
 let grid=document.querySelectorAll(".grid")[0];
 let arr=[...grid.children];
@@ -489,7 +477,6 @@ return sortYear.value==="desc"?y2-y1:y1-y2;
 arr.forEach(c=>grid.appendChild(c));
 };
 
-/* PDF */
 function downloadPDF(){
 window.print();
 }
@@ -497,40 +484,3 @@ window.print();
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
