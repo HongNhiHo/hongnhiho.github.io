@@ -1,677 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hong Nhi Ho | Revenue Operations & Sales Management Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* ================= THEME ================= */
-
-:root{
---primary:#002B5B;
---accent:#FF843D;
---bg:#ffffff;
---bg-soft:#f9fafb;
---text:#2d3436;
---text-light:#636e72;
-}
-
-body.dark{
---primary:#4da3ff;
---accent:#ff9f60;
---bg:#0f172a;
---bg-soft:#1e293b;
---text:#e5e7eb;
---text-light:#9ca3af;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
-transition:.3s;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:0 20px;
-}
-
-/* ================= HEADER ================= */
-
-header{
-padding:60px 0;
-text-align:center;
-background:linear-gradient(135deg,var(--bg-soft),#e5e7eb);
-}
-
-/* ===== AVATAR ===== */
-
-.avatar-wrap{
-display:flex;
-justify-content:center;
-}
-
-.profile-img{
-width:160px;
-height:160px;
-border-radius:50%;
-padding:5px;
-background:linear-gradient(135deg,#FF843D,#4da3ff);
-margin-bottom:22px;
-box-shadow:0 12px 30px rgba(0,0,0,0.18);
-transition:0.4s;
-object-fit:cover;
-}
-
-.profile-img:hover{
-transform:scale(1.05);
-box-shadow:0 18px 45px rgba(0,0,0,0.25);
-}
-
-/* ================= TEXT ================= */
-
-h1{font-size:2.4rem;color:var(--primary)}
-.tagline{color:var(--text-light);margin:12px 0 25px}
-
-/* ================= TOP ACTIONS ================= */
-
-.top-actions{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.cv-btn{
-padding:12px 26px;
-background:var(--accent);
-color:white;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-}
-
-.toggle-btn{
-width:42px;
-height:42px;
-border-radius:50%;
-border:none;
-background:var(--primary);
-color:white;
-cursor:pointer;
-}
-
-/* ================= TITLES ================= */
-
-.section-title{
-text-align:center;
-font-size:1.8rem;
-margin:70px 0 40px;
-color:var(--primary);
-position:relative;
-}
-
-.section-title::after{
-content:'';
-width:50px;
-height:3px;
-background:var(--accent);
-position:absolute;
-bottom:-10px;
-left:50%;
-transform:translateX(-50%);
-}
-
-/* ================= GRID ================= */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-.card{
-background:var(--bg-soft);
-padding:25px;
-border-radius:10px;
-border-left:5px solid var(--primary);
-}
-
-/* bullets */
-
-.card ul{list-style:none;padding-left:0}
-.card li{
-padding-left:18px;
-position:relative;
-margin-bottom:8px;
-}
-.card li::before{
-content:"•";
-position:absolute;
-left:0;
-color:var(--accent);
-font-weight:bold;
-}
-
-/* ================= JOURNEY ================= */
-
-.journey{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-align-items:center;
-gap:14px;
-margin-bottom:70px;
-}
-
-.journey-step{
-background:var(--bg-soft);
-padding:14px 18px;
-border-radius:30px;
-font-weight:600;
-color:var(--primary);
-display:flex;
-flex-direction:column;
-align-items:center;
-min-width:200px;
-text-align:center;
-}
-
-.journey-step span{
-font-size:.8rem;
-font-weight:400;
-color:var(--text-light);
-margin-top:4px;
-}
-
-.journey-step.highlight{
-background:var(--accent);
-color:white;
-}
-
-.journey-step.highlight span{
-color:white;
-opacity:.9;
-}
-
-.arrow{
-font-size:1.3rem;
-font-weight:700;
-color:var(--accent);
-}
-
-/* ================= CERT ================= */
-
-.cert-section{
-background:var(--primary);
-color:white;
-padding:70px 0;
-border-radius:20px;
-margin:80px 0;
-}
-
-.cert-link{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px 0;
-border-bottom:1px solid rgba(255,255,255,.15);
-text-decoration:none;
-color:white;
-}
-
-.cert-year{color:var(--accent)}
-
-/* ================= FOOTER ================= */
-
-footer{
-text-align:center;
-padding:50px 0;
-color:var(--text-light);
-}
-    .cert-section{
-background:var(--primary);
-color:white;
-padding:70px 0;
-border-radius:20px;
-margin:80px 0;
-}
-
-.cert-link{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px 0;
-border-bottom:1px solid rgba(255,255,255,.15);
-text-decoration:none;
-color:white;
-}
-
-.cert-link:hover{
-background:rgba(255,255,255,.07);
-padding-left:10px;
-transition:.2s;
-}
-
-.cert-year{
-color:var(--accent);
-font-weight:600;
-}
-/* ================= ROADMAP ================= */
-
-.roadmap-wrapper{
-margin:90px 0;
-}
-
-.roadmap-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:22px;
-}
-
-.roadmap-card{
-background:var(--bg-soft);
-border-radius:16px;
-padding:26px 22px;
-position:relative;
-box-shadow:0 8px 20px rgba(0,0,0,.05);
-transition:.3s;
-}
-
-.roadmap-card:hover{
-transform:translateY(-6px);
-}
-
-.roadmap-card h3{
-color:var(--primary);
-margin-top:10px;
-font-size:1.1rem;
-}
-
-.roadmap-card h4{
-color:var(--accent);
-font-size:.95rem;
-margin:6px 0;
-}
-
-.roadmap-card p{
-font-size:.9rem;
-color:var(--text-light);
-}
-
-.year{
-font-weight:700;
-color:var(--primary);
-margin-bottom:6px;
-}
-
-.step-badge{
-position:absolute;
-top:-14px;
-left:20px;
-background:var(--accent);
-color:white;
-width:34px;
-height:34px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:700;
-}
-
-.roadmap-card.highlight{
-background:linear-gradient(135deg,var(--primary),#1e3a8a);
-color:white;
-}
-
-.roadmap-card.highlight h3,
-.roadmap-card.highlight h4,
-.roadmap-card.highlight p,
-.roadmap-card.highlight .year{
-color:white;
-}
-/* ====== MERGED ROADMAP ====== */
-
-.roadmap-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:22px;
-margin-bottom:80px;
-}
-
-.roadmap-card{
-background:var(--bg-soft);
-padding:26px;
-border-radius:14px;
-border-left:6px solid var(--primary);
-box-shadow:0 6px 18px rgba(0,0,0,.05);
-transition:.3s;
-}
-
-.roadmap-card:hover{
-transform:translateY(-6px);
-}
-
-.roadmap-card h3{
-color:var(--primary);
-margin-bottom:12px;
-font-size:1.1rem;
-}
-
-.roadmap-card ul{
-list-style:none;
-padding-left:0;
-}
-
-.roadmap-card li{
-margin-bottom:8px;
-padding-left:18px;
-position:relative;
-}
-
-.roadmap-card li::before{
-content:"•";
-position:absolute;
-left:0;
-color:var(--accent);
-font-weight:bold;
-}
-
-.highlight-card{
-background:linear-gradient(135deg,var(--primary),#0b3b70);
-color:white;
-border-left:none;
-}
-
-.highlight-card h3,
-.highlight-card li{
-color:white;
-}
-
-.highlight-card li::before{
-color:#ffd39a;
-}
-.certifications-wrapper{
-max-width:1100px;
-margin:0 auto;
-}
-
-.roadmap-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-justify-content:center;
-}
-/* ===== CERTIFICATIONS ALIGN FIX ===== */
-
-.certifications-wrapper{
-max-width:1100px;
-margin:0 auto;
-}
-
-.roadmap-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:26px;
-justify-content:center;
-}
-
-.cert-title-link{
-color:inherit;
-text-decoration:none;
-}
-
-.cert-title-link:hover{
-color:var(--accent);
-}
-
-/* smoother cards */
-
-.roadmap-card{
-background:var(--bg-soft);
-padding:26px;
-border-radius:14px;
-border-left:6px solid var(--primary);
-box-shadow:0 6px 18px rgba(0,0,0,.06);
-transition:.3s ease;
-}
-
-.roadmap-card:hover{
-transform:translateY(-6px);
-}
-
-.highlight-card{
-background:linear-gradient(135deg,var(--primary),#0b3b70);
-border-left:none;
-}
-
-.highlight-card h3,
-.highlight-card li{
-color:white;
-}
-
-.highlight-card li::before{
-color:#ffd39a;
-}
-
-
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hong Nhi Ho | Revenue Operations & Sales Management Portfolio [cite: 1, 2, 27]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= THEME ================= */
+        :root {
+            --primary: #002B5B;
+            --accent: #FF843D;
+            --bg: #ffffff;
+            --bg-soft: #f9fafb;
+            --text: #2d3436;
+            --text-light: #636e72;
+        }
+
+        body.dark {
+            --primary: #4da3ff;
+            --accent: #ff9f60;
+            --bg: #0f172a;
+            --bg-soft: #1e293b;
+            --text: #e5e7eb;
+            --text-light: #9ca3af;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: .3s;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* ================= STICKY NAV ================= */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, .75);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,.06);
+            transform: translateY(-100%);
+            transition: .35s ease;
+            z-index: 999;
+        }
+
+        body.dark .sticky-nav {
+            background: rgba(15, 23, 42, .75);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .sticky-nav.show { transform: translateY(0); }
+
+        .sticky-inner {
+            max-width: 1100px;
+            margin: auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-name { font-weight: 600; color: var(--primary); [cite: 32] }
+
+        .sticky-actions { display: flex; gap: 12px; align-items: center; }
+
+        .sticky-cv { text-decoration: none; font-weight: 600; color: var(--accent); }
+
+        /* ================= LINKEDIN ICON ================= */
+        .linkedin-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            text-decoration: none;
+            color: var(--text-light);
+            background: transparent;
+            border: 1.5px solid rgba(0,0,0,0.08);
+            transition: all .28s ease;
+        }
+
+        body.dark .linkedin-link { border: 1.5px solid rgba(255,255,255,0.15); }
+
+        .linkedin-link svg { width: 20px; height: 20px; stroke: currentColor; [cite: 30] }
+
+        .linkedin-link:hover {
+            color: #0A66C2;
+            border-color: #0A66C2;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(10,102,194,.18);
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-soft), #e5e7eb);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #FF843D, #4da3ff);
+            margin-bottom: 22px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+            transition: 0.4s;
+            object-fit: cover;
+        }
+
+        .profile-img:hover { transform: scale(1.05); }
+
+        h1 { font-size: 2.4rem; color: var(--primary); }
+        .tagline { color: var(--text-light); margin: 12px 0 25px; }
+
+        .top-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .cv-btn {
+            padding: 12px 26px;
+            background: var(--accent);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .toggle-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ================= TITLES ================= */
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 70px 0 40px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ================= GRID & CARDS ================= */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-soft);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .card ul { list-style: none; padding-left: 0; }
+        .card li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ================= JOURNEY ================= */
+        .journey {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 70px;
+        }
+
+        .journey-step {
+            background: var(--bg-soft);
+            padding: 14px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .journey-step.highlight { background: var(--accent); color: white; }
+
+        .arrow { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+
+        /* ================= CERTIFICATIONS GRID ================= */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .roadmap-card {
+            background: var(--bg-soft);
+            padding: 26px;
+            border-radius: 14px;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 6px 18px rgba(0,0,0,.06);
+            transition: .3s ease;
+        }
+
+        .roadmap-card:hover { transform: translateY(-6px); }
+
+        .roadmap-card h3 { color: var(--primary); margin-bottom: 12px; font-size: 1.1rem; }
+
+        .roadmap-card ul { list-style: none; padding-left: 0; }
+
+        .roadmap-card li { margin-bottom: 8px; padding-left: 18px; position: relative; }
+
+        .roadmap-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, var(--primary), #0b3b70);
+            border-left: none;
+            color: white;
+        }
+
+        .highlight-card h3, .highlight-card li { color: white; }
+        .highlight-card li::before { color: #ffd39a; }
+
+        /* ================= FOOTER ================= */
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            color: var(--text-light);
+        }
+
+        .footer-social { margin-top: 15px; display: flex; justify-content: center; }
+
+    </style>
 </head>
 
 <body>
 
-<header>
-<div class="container">
+    <div class="sticky-nav" id="stickyNav">
+        <div class="sticky-inner">
+            <div class="sticky-name">Hong Nhi Ho</div>
+            <div class="sticky-actions">
+                <a href="./cv.pdf" target="_blank" class="sticky-cv">CV</a>
+                <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link">
+                    <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4V9h4v2"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
 
-<div class="avatar-wrap">
-<img src="profile.jpg" class="profile-img">
-</div>
+    <header>
+        <div class="container">
+            <div class="avatar-wrap">
+                <img src="profile.jpg" class="profile-img" alt="Hong Nhi Ho">
+            </div>
+            <h1 data-en="Sales Management Portfolio" data-vi="Hồ Sơ Quản Lý Bán Hàng">Sales Management Portfolio</h1>
+            <p class="tagline" 
+               data-en="Strategic Sales Leader | Revenue Operations | AI-Driven Growth"
+               data-vi="Lãnh đạo Kinh doanh Chiến lược | RevOps | Tăng trưởng nhờ AI">
+                Strategic Sales Leader | Revenue Operations | AI-Driven Growth [cite: 22, 38]
+            </p>
+            <div class="top-actions">
+                <a href="./cv.pdf" class="cv-btn" target="_blank">Download CV</a>
+                <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link">
+                    <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4V9h4v2"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+                <button id="langToggle" class="toggle-btn">EN</button>
+                <button id="themeToggle" class="toggle-btn">🌙</button>
+            </div>
+        </div>
+    </header>
 
-<h1 data-en="Sales Management Portfolio"
-    data-vi="Hồ Sơ Quản Lý Bán Hàng">
-Sales Management Portfolio
-</h1>
-
-<p class="tagline"
-data-en="Strategic Sales Leader | Revenue Operations | AI-Driven Growth"
-data-vi="Lãnh đạo Kinh doanh Chiến lược | RevOps | Tăng trưởng nhờ AI">
-Strategic Sales Leader | Revenue Operations | AI-Driven Growth
-</p>
-
-<div class="top-actions">
-<a href="./cv.pdf" class="cv-btn" target="_blank">Download CV</a>
-<button id="langToggle" class="toggle-btn">EN</button>
-<button id="themeToggle" class="toggle-btn">🌙</button>
-</div>
-
-</div>
-</header>
-
-<div class="container">
-
-<h2 class="section-title"
-data-en="Career Roadmap"
-data-vi="Lộ Trình Sự Nghiệp">Career Roadmap</h2>
-
-<div class="grid">
-<div class="card" data-en="2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University"
-data-vi="2012 – Nền tảng CNTT: Cử nhân CNTT – ĐH Tôn Đức Thắng">
-2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University
-</div>
-
-<div class="card" data-en="2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing"
-data-vi="2019–2021 – Chuyển hướng chiến lược: Khách hàng & Digital Marketing">
-2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing
-</div>
-
-<div class="card" data-en="2023–2026 – RevOps & AI: Automation, CRM, Optimization"
-data-vi="2023–2026 – RevOps & AI: Tự động hóa, CRM, Tối ưu">
-2023–2026 – RevOps & AI: Automation, CRM, Optimization
-</div>
-</div>
-
-<h2 class="section-title"
-data-en="Core Competencies"
-data-vi="Năng Lực Cốt Lõi">Core Competencies</h2>
-
-<div class="grid">
-<div class="card">
-<h4>Sales Execution</h4>
-<ul>
-<li>Enterprise B2B Sales</li>
-<li>Consultative Selling</li>
-<li>Contract Negotiation</li>
-</ul>
-</div>
-
-<div class="card">
-<h4>GTM & Strategy</h4>
-<ul>
-<li>GTM Strategy</li>
-<li>ICP & Segmentation</li>
-<li>Forecasting</li>
-</ul>
-</div>
-
-<div class="card">
-<h4>Technical Edge</h4>
-<ul>
-<li>SaaS & AI</li>
-<li>CRM Automation</li>
-<li>Solution Mapping</li>
-</ul>
-</div>
-
-<div class="card">
-<h4>Leadership</h4>
-<ul>
-<li>Team Coaching</li>
-<li>Stakeholder</li>
-<li>Strategic Thinking</li>
-</ul>
-</div>
-</div>
-
-<h2 class="section-title"
-data-en="Capability Evolution Journey"
-data-vi="Hành Trình Phát Triển Năng Lực">
-Capability Evolution Journey
-</h2>
-
-<div class="journey">
-<div class="journey-step">IT Graduate</div>
-<div class="arrow">→</div>
-<div class="journey-step">Telemarketing Leader</div>
-<div class="arrow">→</div>
-<div class="journey-step">Sales Ops Lead</div>
-<div class="arrow">→</div>
-<div class="journey-step">Branch Manager</div>
-<div class="arrow">→</div>
-<div class="journey-step">RevOps Leader</div>
-<div class="arrow">→</div>
-<div class="journey-step highlight">Business Owner</div>
-</div>
-</div>
     <div class="container">
+        <h2 class="section-title" data-en="Career Roadmap" data-vi="Lộ Trình Sự Nghiệp">Career Roadmap</h2>
+        <div class="grid">
+            <div class="card" data-en="2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University"
+                 data-vi="2012 – Nền tảng CNTT: Cử nhân CNTT – ĐH Tôn Đức Thắng">
+                2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University 
+            </div>
+            <div class="card" data-en="2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing"
+                 data-vi="2019–2021 – Chuyển hướng chiến lược: Khách hàng & Digital Marketing">
+                2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing 
+            </div>
+            <div class="card" data-en="2023–2026 – RevOps & AI: Automation, CRM, Optimization"
+                 data-vi="2023–2026 – RevOps & AI: Tự động hóa, CRM, Tối ưu">
+                2023–2026 – RevOps & AI: Automation, CRM, Optimization 
+            </div>
+        </div>
 
-<h2 class="section-title">
-<a class="cert-title-link"
-href="https://hongnhiho.github.io/certification/"
-target="_blank">
-Professional Certifications
-</a>
-</h2>
+        <h2 class="section-title" data-en="Core Competencies" data-vi="Năng Lực Cốt Lõi">Core Competencies</h2>
+        <div class="grid">
+            <div class="card">
+                <h4>Sales Execution</h4>
+                <ul><li>Enterprise B2B Sales</li><li>Consultative Selling</li><li>Contract Negotiation</li></ul>
+            </div>
+            <div class="card">
+                <h4>GTM & Strategy</h4>
+                <ul><li>GTM Strategy</li><li>ICP & Segmentation</li><li>Forecasting</li></ul>
+            </div>
+            <div class="card">
+                <h4>Technical Edge</h4>
+                <ul><li>SaaS & AI</li><li>CRM Automation</li><li>Solution Mapping</li></ul>
+            </div>
+            <div class="card">
+                <h4>Leadership</h4>
+                <ul><li>Team Coaching</li><li>Stakeholder</li><li>Strategic Thinking</li></ul>
+            </div>
+        </div>
 
-<div class="certifications-wrapper">
+        <h2 class="section-title" data-en="Capability Evolution Journey" data-vi="Hành Trình Phát Triển Năng Lực">Capability Evolution Journey</h2>
+        <div class="journey">
+            <div class="journey-step">IT Graduate</div><div class="arrow">→</div>
+            <div class="journey-step">Telemarketing Leader</div><div class="arrow">→</div>
+            <div class="journey-step">Sales Ops Lead</div><div class="arrow">→</div>
+            <div class="journey-step">Branch Manager</div><div class="arrow">→</div>
+            <div class="journey-step">RevOps Leader</div><div class="arrow">→</div>
+            <div class="journey-step highlight">Business Owner</div>
+        </div>
 
-<div class="roadmap-grid">
+        <h2 class="section-title"><a href="https://hongnhiho.github.io/certification/" target="_blank" style="color:inherit; text-decoration:none;">Professional Certifications</a></h2>
+        <div class="roadmap-grid">
+            <div class="roadmap-card">
+                <h3>🎓 Education Foundation</h3>
+                <ul><li>Bachelor of IT – Ton Duc Thang University (2012)</li><li>Good Distinction</li></ul>
+            </div>
+            <div class="roadmap-card">
+                <h3>📈 Digital & Marketing Expansion</h3>
+                <ul><li>Digital Marketing Diploma – Kent International College (2019) [cite: 24]</li><li>AI Digital Marketing – Redpola (2023)</li></ul>
+            </div>
+            <div class="roadmap-card">
+                <h3>💼 Sales & Revenue Operations</h3>
+                <ul><li>Revenue Operations – HubSpot (2026)</li><li>Sales Enablement – HubSpot (2026)</li><li>Sales Management – HubSpot (2026)</li></ul>
+            </div>
+            <div class="roadmap-card">
+                <h3>🤖 AI & Sales Technology</h3>
+                <ul><li>Chatbot Automation – Unica (2023)</li><li>CRM & Sales Automation</li></ul>
+            </div>
+            <div class="roadmap-card highlight-card">
+                <h3>👑 Leadership & Strategy</h3>
+                <ul><li>Chief Customer Officer (CCO) – PTI (2021)</li><li>Managing Project Stakeholders – LinkedIn (2026)</li></ul>
+            </div>
+        </div>
+    </div>
 
-<div class="roadmap-card">
-<h3>🎓 Education Foundation</h3>
-<ul>
-<li>Bachelor of Information Technology – Ton Duc Thang University (2012)</li>
-<li>Good Distinction</li>
-</ul>
-</div>
+    <footer>
+        <p>© 2026 Hong Nhi Ho</p>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4V9h4v2"/>
+                    <rect x="2" y="9" width="4" height="12"/>
+                    <circle cx="4" cy="4" r="2"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
 
-<div class="roadmap-card">
-<h3>📈 Digital & Marketing Expansion</h3>
-<ul>
-<li>Digital Marketing Diploma – Kent International College (2019)</li>
-<li>AI Digital Marketing – Redpola (2023)</li>
-</ul>
-</div>
+    <script>
+        // DARK MODE [cite: 25, 39]
+        const themeBtn = document.getElementById("themeToggle");
+        themeBtn.onclick = () => document.body.classList.toggle("dark");
 
-<div class="roadmap-card">
-<h3>💼 Sales & Revenue Operations</h3>
-<ul>
-<li>Revenue Operations Certification – HubSpot Academy (2026)</li>
-<li>Sales Enablement Certification – HubSpot Academy (2026)</li>
-<li>Sales Management Certification – HubSpot Academy (2026)</li>
-</ul>
-</div>
+        // LANGUAGE TOGGLE
+        let currentLang = "en";
+        const langBtn = document.getElementById("langToggle");
+        langBtn.onclick = () => {
+            currentLang = currentLang === "en" ? "vi" : "en";
+            langBtn.textContent = currentLang.toUpperCase();
+            document.querySelectorAll("[data-en]").forEach(el => {
+                el.textContent = el.dataset[currentLang];
+            });
+        };
 
-<div class="roadmap-card">
-<h3>🤖 AI & Sales Technology</h3>
-<ul>
-<li>Chatbot Automation for Sales & Customer Service – Unica Academy (2023)</li>
-<li>CRM & Sales Automation</li>
-</ul>
-</div>
-
-<div class="roadmap-card highlight-card">
-<h3>👑 Leadership & Strategy</h3>
-<ul>
-<li>Chief Customer Officer (CCO) – PTI Education (2021)</li>
-<li>Managing Project Stakeholders – LinkedIn Learning (2026)</li>
-</ul>
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-
-<footer>
-<p>© 2026 Hong Nhi Ho</p>
-</footer>
-
-<!-- ================= SCRIPTS ================= -->
-
-<script>
-// DARK MODE
-const themeBtn=document.getElementById("themeToggle");
-themeBtn.onclick=()=>{
-document.body.classList.toggle("dark");
-};
-
-// LANGUAGE TOGGLE
-let currentLang="en";
-const langBtn=document.getElementById("langToggle");
-
-langBtn.onclick=()=>{
-currentLang=currentLang==="en"?"vi":"en";
-langBtn.textContent=currentLang.toUpperCase();
-
-document.querySelectorAll("[data-en]").forEach(el=>{
-el.textContent = el.dataset[currentLang];
-});
-};
-</script>
-
+        // STICKY NAV [cite: 31]
+        const stickyNav = document.getElementById("stickyNav");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 220) {
+                stickyNav.classList.add("show");
+            } else {
+                stickyNav.classList.remove("show");
+            }
+        });
+    </script>
 </body>
 </html>
