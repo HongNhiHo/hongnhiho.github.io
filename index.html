@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG4LK1B81R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MG4LK1B81R');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MG4LK1B81R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MG4LK1B81R');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hong Nhi Ho | Revenue Operations & Sales Management Portfolio [cite: 1, 2, 27]</title>
+    <title>Hong Nhi Ho | Revenue Operations & Sales Management Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ================= THEME ================= */
+        /* ================= THEME & VARIABLES [cite: 4, 5, 6, 7] ================= */
         :root {
             --primary: #002B5B;
             --accent: #FF843D;
@@ -24,6 +23,7 @@
             --bg-soft: #f9fafb;
             --text: #2d3436;
             --text-light: #636e72;
+            --card-shadow: rgba(0,0,0,0.06);
         }
 
         body.dark {
@@ -33,276 +33,270 @@
             --bg-soft: #1e293b;
             --text: #e5e7eb;
             --text-light: #9ca3af;
+            --card-shadow: rgba(0,0,0,0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            transition: .3s;
+            transition: background 0.4s ease, color 0.3s;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
+        /* ================= MOTION BACKGROUND & CURSOR [cite: 93, 94, 95] ================= */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -20%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,132,61,.08), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(77,163,255,.08), transparent 40%);
+            animation: bgMove 18s ease-in-out infinite alternate;
+            z-index: -2;
         }
 
-        /* ================= STICKY NAV ================= */
+        @keyframes bgMove {
+            from { transform: translate(0,0); }
+            to { transform: translate(40px, -30px); }
+        }
+
+        .cursor-light {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(255,132,61,0.1), transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: blur(50px);
+        }
+
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+        /* ================= STICKY NAV [cite: 11, 12, 13, 14] ================= */
         .sticky-nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, .75);
-            backdrop-filter: blur(10px);
+            top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, .8);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0,0,0,.06);
             transform: translateY(-100%);
             transition: .35s ease;
-            z-index: 999;
+            z-index: 1000;
         }
 
         body.dark .sticky-nav {
-            background: rgba(15, 23, 42, .75);
+            background: rgba(15, 23, 42, .8);
             border-bottom: 1px solid rgba(255, 255, 255, .08);
         }
 
         .sticky-nav.show { transform: translateY(0); }
 
         .sticky-inner {
-            max-width: 1100px;
-            margin: auto;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1100px; margin: auto; padding: 10px 20px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        .sticky-name { font-weight: 600; color: var(--primary); [cite: 32] }
+        .sticky-name { font-weight: 700; color: var(--primary); }
 
-        .sticky-actions { display: flex; gap: 12px; align-items: center; }
-
-        .sticky-cv { text-decoration: none; font-weight: 600; color: var(--accent); }
-
-        /* ================= LINKEDIN ICON ================= */
-        .linkedin-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            text-decoration: none;
-            color: var(--text-light);
-            background: transparent;
-            border: 1.5px solid rgba(0,0,0,0.08);
-            transition: all .28s ease;
-        }
-
-        body.dark .linkedin-link { border: 1.5px solid rgba(255,255,255,0.15); }
-
-        .linkedin-link svg { width: 20px; height: 20px; stroke: currentColor; [cite: 30] }
-
-        .linkedin-link:hover {
-            color: #0A66C2;
-            border-color: #0A66C2;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(10,102,194,.18);
-        }
-
-        /* ================= HEADER ================= */
+        /* ================= HEADER [cite: 25, 26, 27] ================= */
         header {
-            padding: 60px 0;
+            padding: 100px 0 60px;
             text-align: center;
-            background: linear-gradient(135deg, var(--bg-soft), #e5e7eb);
+            background: linear-gradient(135deg, var(--bg-soft), transparent);
         }
 
         .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, #FF843D, #4da3ff);
-            margin-bottom: 22px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-            transition: 0.4s;
-            object-fit: cover;
+            width: 160px; height: 160px; border-radius: 50%; padding: 5px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            margin-bottom: 25px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            transition: 0.4s; object-fit: cover;
         }
 
-        .profile-img:hover { transform: scale(1.05); }
+        .profile-img:hover { transform: scale(1.05) rotate(3deg); }
 
-        h1 { font-size: 2.4rem; color: var(--primary); }
-        .tagline { color: var(--text-light); margin: 12px 0 25px; }
+        h1 { font-size: 2.8rem; color: var(--primary); letter-spacing: -0.5px; }
+        .tagline { color: var(--text-light); margin: 15px 0 30px; font-size: 1.1rem; }
 
-        .top-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+        .top-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; align-items: center; }
 
         .cv-btn {
-            padding: 12px 26px;
-            background: var(--accent);
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
+            padding: 12px 28px; background: var(--accent); color: white;
+            border-radius: 30px; text-decoration: none; font-weight: 600;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(255,132,61,0.3);
         }
 
         .toggle-btn {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: none;
-            background: var(--primary);
-            color: white;
-            cursor: pointer;
+            width: 45px; height: 45px; border-radius: 50%; border: none;
+            background: var(--primary); color: white; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; font-weight: 600;
+            transition: 0.3s;
         }
 
-        /* ================= TITLES ================= */
+        /* ================= SECTIONS & TITLES [cite: 36, 37] ================= */
         .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            margin: 70px 0 40px;
-            color: var(--primary);
-            position: relative;
+            text-align: center; font-size: 2rem; margin: 80px 0 45px;
+            color: var(--primary); position: relative;
         }
 
-        .section-title::after {
-            content: '';
-            width: 50px;
+        /* ELITE LINK HOVER EFFECT (KHÔNG CÓ MŨI TÊN) [cite: 97, 98] */
+        .cert-link {
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            font-weight: 700;
+            transition: .4s cubic-bezier(.4,0,.2,1);
+            display: inline-block;
+        }
+
+        .cert-link::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            width: 0;
             height: 3px;
             background: var(--accent);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
             transform: translateX(-50%);
+            transition: .4s;
         }
 
-        /* ================= GRID & CARDS ================= */
-        .grid {
+        .cert-link:hover {
+            color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .cert-link:hover::before { width: 100%; }
+
+        /* ================= CORE COMPETENCIES (1 ROW STYLE)  ================= */
+        .competencies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(4, 1fr); /* Ép thành 4 cột trên 1 hàng */
             gap: 20px;
         }
 
-        .card {
+        @media (max-width: 992px) {
+            .competencies-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .competencies-grid { grid-template-columns: 1fr; }
+        }
+
+        .comp-card {
             background: var(--bg-soft);
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 12px;
             border-left: 5px solid var(--primary);
+            box-shadow: 0 4px 12px var(--card-shadow);
+            transition: 0.3s;
         }
 
-        .card ul { list-style: none; padding-left: 0; }
-        .card li {
-            padding-left: 18px;
-            position: relative;
-            margin-bottom: 8px;
+        .comp-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px var(--card-shadow); }
+        .comp-card h4 { margin-bottom: 15px; color: var(--primary); font-size: 1.1rem; }
+        .comp-card ul { list-style: none; }
+        .comp-card li {
+            padding-left: 18px; position: relative; margin-bottom: 8px; font-size: 0.9rem;
         }
-        .card li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
+        .comp-card li::before {
+            content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: 800;
         }
 
-        /* ================= JOURNEY ================= */
+        /* ================= CAREER ROADMAP CARDS ================= */
+        .roadmap-simple-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .simple-card {
+            background: var(--bg-soft); padding: 25px; border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 4px 12px var(--card-shadow);
+            font-size: 0.95rem;
+        }
+
+        /* ================= CAPABILITY JOURNEY (WITH ARROWS) [cite: 50, 77, 78] ================= */
         .journey {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 70px;
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: center; gap: 15px; margin: 20px 0 40px;
         }
 
         .journey-step {
-            background: var(--bg-soft);
-            padding: 14px 18px;
-            border-radius: 30px;
-            font-weight: 600;
-            color: var(--primary);
-            min-width: 180px;
-            text-align: center;
+            background: var(--bg-soft); padding: 12px 20px; border-radius: 40px;
+            font-weight: 600; color: var(--primary); border: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
 
-        .journey-step.highlight { background: var(--accent); color: white; }
+        .journey-step.highlight {
+            background: var(--accent); color: white; border: none;
+            box-shadow: 0 4px 15px rgba(255,132,61,0.3);
+        }
 
-        .arrow { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+        .arrow { font-weight: 700; color: var(--accent); font-size: 1.2rem; }
 
-        /* ================= CERTIFICATIONS GRID ================= */
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 80px;
+        /* ================= CERTIFICATIONS (MAGNETIC) [cite: 51, 52, 53, 100] ================= */
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; perspective: 1000px;
         }
 
         .roadmap-card {
-            background: var(--bg-soft);
-            padding: 26px;
-            border-radius: 14px;
+            background: var(--bg-soft); padding: 28px; border-radius: 16px;
             border-left: 6px solid var(--primary);
-            box-shadow: 0 6px 18px rgba(0,0,0,.06);
-            transition: .3s ease;
+            box-shadow: 0 8px 20px var(--card-shadow);
+            transition: transform 0.1s ease, box-shadow 0.3s ease;
+            will-change: transform;
         }
 
-        .roadmap-card:hover { transform: translateY(-6px); }
-
-        .roadmap-card h3 { color: var(--primary); margin-bottom: 12px; font-size: 1.1rem; }
-
-        .roadmap-card ul { list-style: none; padding-left: 0; }
-
-        .roadmap-card li { margin-bottom: 8px; padding-left: 18px; position: relative; }
-
-        .roadmap-card li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
+        .roadmap-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.1rem; }
+        .roadmap-card ul { list-style: none; }
+        .roadmap-card li { padding-left: 20px; position: relative; margin-bottom: 8px; font-size: 0.95rem; }
+        .roadmap-card li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 
         .highlight-card {
             background: linear-gradient(135deg, var(--primary), #0b3b70);
-            border-left: none;
-            color: white;
+            border-left: none; color: white;
         }
-
         .highlight-card h3, .highlight-card li { color: white; }
-        .highlight-card li::before { color: #ffd39a; }
 
-        /* ================= FOOTER ================= */
-        footer {
-            text-align: center;
-            padding: 50px 0;
-            color: var(--text-light);
+        /* ================= REVEAL ANIMATION [cite: 101] ================= */
+        .reveal {
+            opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
         }
+        .reveal.show { opacity: 1; transform: translateY(0); }
 
-        .footer-social { margin-top: 15px; display: flex; justify-content: center; }
+        /* ================= FOOTER [cite: 62, 83] ================= */
+        footer { text-align: center; padding: 70px 0; color: var(--text-light); }
+
+        .linkedin-link {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 45px; height: 45px; border-radius: 50%;
+            border: 1.5px solid rgba(0,0,0,0.1); transition: 0.3s; color: var(--text-light);
+        }
+        body.dark .linkedin-link { border-color: rgba(255,255,255,0.1); }
+        .linkedin-link:hover { color: #0A66C2; border-color: #0A66C2; transform: translateY(-3px); }
+        .linkedin-link svg { width: 22px; height: 22px; fill: currentColor; }
 
     </style>
 </head>
 
 <body>
 
+    <div class="cursor-light" id="cursorLight"></div>
+
     <div class="sticky-nav" id="stickyNav">
         <div class="sticky-inner">
             <div class="sticky-name">Hong Nhi Ho</div>
-            <div class="sticky-actions">
-                <a href="./cv.pdf" target="_blank" class="sticky-cv">CV</a>
-                <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link">
-                    <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
-                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4V9h4v2"/>
-                        <rect x="2" y="9" width="4" height="12"/>
-                        <circle cx="4" cy="4" r="2"/>
-                    </svg>
+            <div class="sticky-actions" style="display:flex; gap:15px; align-items:center;">
+                <a href="./cv.pdf" target="_blank" class="cv-btn" style="padding: 8px 20px; font-size: 0.9rem;">CV</a>
+                <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link" style="width:35px; height:35px;">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
             </div>
         </div>
@@ -310,23 +304,15 @@
 
     <header>
         <div class="container">
-            <div class="avatar-wrap">
-                <img src="profile.jpg" class="profile-img" alt="Hong Nhi Ho">
-            </div>
+            <img src="profile.jpg" class="profile-img" alt="Hong Nhi Ho">
             <h1 data-en="Sales Management Portfolio" data-vi="Hồ Sơ Quản Lý Bán Hàng">Sales Management Portfolio</h1>
-            <p class="tagline" 
-               data-en="Strategic Sales Leader | Revenue Operations | AI-Driven Growth"
-               data-vi="Lãnh đạo Kinh doanh Chiến lược | RevOps | Tăng trưởng nhờ AI">
+            <p class="tagline" data-en="Strategic Sales Leader | Revenue Operations | AI-Driven Growth" data-vi="Lãnh đạo Kinh doanh Chiến lược | RevOps | Tăng trưởng nhờ AI">
                 Strategic Sales Leader | Revenue Operations | AI-Driven Growth
             </p>
             <div class="top-actions">
                 <a href="./cv.pdf" class="cv-btn" target="_blank">Download CV</a>
                 <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link">
-                    <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
-                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4V9h4v2"/>
-                        <rect x="2" y="9" width="4" height="12"/>
-                        <circle cx="4" cy="4" r="2"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
                 <button id="langToggle" class="toggle-btn">EN</button>
                 <button id="themeToggle" class="toggle-btn">🌙</button>
@@ -335,44 +321,41 @@
     </header>
 
     <div class="container">
-        <h2 class="section-title" data-en="Career Roadmap" data-vi="Lộ Trình Sự Nghiệp">Career Roadmap</h2>
-        <div class="grid">
-            <div class="card" data-en="2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University"
-                 data-vi="2012 – Nền tảng CNTT: Cử nhân CNTT – ĐH Tôn Đức Thắng">
-                2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University 
+        <h2 class="section-title reveal" data-en="Career Roadmap" data-vi="Lộ Trình Sự Nghiệp">Career Roadmap</h2>
+        <div class="roadmap-simple-grid reveal">
+            <div class="simple-card" data-en="2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University" data-vi="2012 – Nền tảng CNTT: Cử nhân CNTT – ĐH Tôn Đức Thắng">
+                2012 – Tech Foundation: Bachelor of IT – Ton Duc Thang University
             </div>
-            <div class="card" data-en="2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing"
-                 data-vi="2019–2021 – Chuyển hướng chiến lược: Khách hàng & Digital Marketing">
-                2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing 
+            <div class="simple-card" data-en="2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing" data-vi="2019–2021 – Chuyển hướng chiến lược: Khách hàng & Digital Marketing">
+                2019–2021 – Strategic Pivot: Customer Leadership & Digital Marketing
             </div>
-            <div class="card" data-en="2023–2026 – RevOps & AI: Automation, CRM, Optimization"
-                 data-vi="2023–2026 – RevOps & AI: Tự động hóa, CRM, Tối ưu">
-                2023–2026 – RevOps & AI: Automation, CRM, Optimization 
+            <div class="simple-card" data-en="2023–2026 – RevOps & AI: Automation, CRM, Optimization" data-vi="2023–2026 – RevOps & AI: Tự động hóa, CRM, Tối ưu">
+                2023–2026 – RevOps & AI: Automation, CRM, Optimization
             </div>
         </div>
 
-        <h2 class="section-title" data-en="Core Competencies" data-vi="Năng Lực Cốt Lõi">Core Competencies</h2>
-        <div class="grid">
-            <div class="card">
+        <h2 class="section-title reveal" data-en="Core Competencies" data-vi="Năng Lực Cốt Lõi">Core Competencies</h2>
+        <div class="competencies-grid reveal">
+            <div class="comp-card">
                 <h4>Sales Execution</h4>
                 <ul><li>Enterprise B2B Sales</li><li>Consultative Selling</li><li>Contract Negotiation</li></ul>
             </div>
-            <div class="card">
+            <div class="comp-card">
                 <h4>GTM & Strategy</h4>
                 <ul><li>GTM Strategy</li><li>ICP & Segmentation</li><li>Forecasting</li></ul>
             </div>
-            <div class="card">
+            <div class="comp-card">
                 <h4>Technical Edge</h4>
                 <ul><li>SaaS & AI</li><li>CRM Automation</li><li>Solution Mapping</li></ul>
             </div>
-            <div class="card">
+            <div class="comp-card">
                 <h4>Leadership</h4>
                 <ul><li>Team Coaching</li><li>Stakeholder</li><li>Strategic Thinking</li></ul>
             </div>
         </div>
 
-        <h2 class="section-title" data-en="Capability Evolution Journey" data-vi="Hành Trình Phát Triển Năng Lực">Capability Evolution Journey</h2>
-        <div class="journey">
+        <h2 class="section-title reveal" data-en="Capability Evolution Journey" data-vi="Hành Trình Phát Triển">Capability Evolution Journey</h2>
+        <div class="journey reveal">
             <div class="journey-step">IT Graduate</div><div class="arrow">→</div>
             <div class="journey-step">Telemarketing Leader</div><div class="arrow">→</div>
             <div class="journey-step">Sales Ops Lead</div><div class="arrow">→</div>
@@ -381,67 +364,135 @@
             <div class="journey-step highlight">Business Owner</div>
         </div>
 
-        <h2 class="section-title"><a href="https://hongnhiho.github.io/certification/" target="_blank" style="color:inherit; text-decoration:none;">Professional Certifications</a></h2>
-        <div class="roadmap-grid">
-            <div class="roadmap-card">
-                <h3>🎓 Education Foundation</h3>
-                <ul><li>Bachelor of IT – Ton Duc Thang University (2012)</li><li>Good Distinction</li></ul>
+        <h2 class="section-title reveal">
+            <a href="https://hongnhiho.github.io/certification/" target="_blank" class="cert-link" data-en="Professional Certifications" data-vi="Chứng Chỉ Chuyên Môn">Professional Certifications</a>
+        </h2>
+        
+        <div class="cert-grid">
+            <div class="roadmap-card reveal">
+                <h3 data-en="🎓 Education Foundation" data-vi="🎓 Nền tảng Giáo dục">🎓 Education Foundation</h3>
+                <ul>
+                    <li data-en="Bachelor of IT – Ton Duc Thang University (2012)" data-vi="Cử nhân CNTT – Đại học Tôn Đức Thắng (2012)">Bachelor of IT – Ton Duc Thang University (2012)</li>
+                    <li data-en="Good Distinction" data-vi="Xếp loại Khá/Giỏi">Good Distinction</li>
+                </ul>
             </div>
-            <div class="roadmap-card">
-                <h3>📈 Digital & Marketing Expansion</h3>
-                <ul><li>Digital Marketing Diploma – Kent International College (2019) [cite: 24]</li><li>AI Digital Marketing – Redpola (2023)</li></ul>
+
+            <div class="roadmap-card reveal">
+                <h3 data-en="📈 Digital & Marketing Expansion" data-vi="📈 Mở rộng Tiếp thị số">📈 Digital & Marketing Expansion</h3>
+                <ul>
+                    <li data-en="Digital Marketing Diploma – Kent International College (2019)" data-vi="Bằng Digital Marketing – Kent International College (2019)">Digital Marketing Diploma – Kent International College (2019)</li>
+                    <li data-en="AI Digital Marketing – Redpola (2023)" data-vi="AI Digital Marketing – Redpola (2023)">AI Digital Marketing – Redpola (2023)</li>
+                </ul>
             </div>
-            <div class="roadmap-card">
-                <h3>💼 Sales & Revenue Operations</h3>
-                <ul><li>Revenue Operations – HubSpot (2026)</li><li>Sales Enablement – HubSpot (2026)</li><li>Sales Management – HubSpot (2026)</li></ul>
+
+            <div class="roadmap-card reveal">
+                <h3 data-en="💼 Sales & Revenue Operations" data-vi="💼 Vận hành Kinh doanh & Doanh thu">💼 Sales & Revenue Operations</h3>
+                <ul>
+                    <li data-en="Revenue Operations – HubSpot (2026)" data-vi="Revenue Operations – HubSpot (2026)">Revenue Operations – HubSpot (2026)</li>
+                    <li data-en="Sales Enablement – HubSpot (2026)" data-vi="Sales Enablement – HubSpot (2026)">Sales Enablement – HubSpot (2026)</li>
+                    <li data-en="Sales Management – HubSpot (2026)" data-vi="Sales Management – HubSpot (2026)">Sales Management – HubSpot (2026)</li>
+                </ul>
             </div>
-            <div class="roadmap-card">
-                <h3>🤖 AI & Sales Technology</h3>
-                <ul><li>Chatbot Automation – Unica (2023)</li><li>CRM & Sales Automation</li></ul>
+
+            <div class="roadmap-card reveal">
+                <h3 data-en="🤖 AI & Sales Technology" data-vi="🤖 Công nghệ AI & Bán hàng">🤖 AI & Sales Technology</h3>
+                <ul>
+                    <li data-en="Chatbot Automation – Unica (2023)" data-vi="Tự động hóa Chatbot – Unica (2023)">Chatbot Automation – Unica (2023)</li>
+                    <li data-en="CRM & Sales Automation" data-vi="Tự động hóa CRM & Bán hàng">CRM & Sales Automation</li>
+                </ul>
             </div>
-            <div class="roadmap-card highlight-card">
-                <h3>👑 Leadership & Strategy</h3>
-                <ul><li>Chief Customer Officer (CCO) – PTI (2021)</li><li>Managing Project Stakeholders – LinkedIn (2026)</li></ul>
+
+            <div class="roadmap-card highlight-card reveal">
+                <h3 data-en="👑 Leadership & Strategy" data-vi="👑 Lãnh đạo & Chiến lược">👑 Leadership & Strategy</h3>
+                <ul>
+                    <li data-en="Chief Customer Officer (CCO) – PTI (2021)" data-vi="Chief Customer Officer (CCO) – PTI (2021)">Chief Customer Officer (CCO) – PTI (2021)</li>
+                    <li data-en="Managing Project Stakeholders – LinkedIn (2026)" data-vi="Quản lý các bên liên quan – LinkedIn (2026)">Managing Project Stakeholders – LinkedIn (2026)</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Hong Nhi Ho</p>
-        <div class="footer-social">
-            <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link">
-                <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
-                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4V9h4v2"/>
-                    <rect x="2" y="9" width="4" height="12"/>
-                    <circle cx="4" cy="4" r="2"/>
-                </svg>
-            </a>
+        <div class="container">
+            <p>© 2026 Hong Nhi Ho</p>
+            <div style="margin-top:20px;">
+                <a href="https://www.linkedin.com/in/hongnhiho" target="_blank" class="linkedin-link">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // DARK MODE [cite: 25, 39]
+        // DARK MODE [cite: 85]
         const themeBtn = document.getElementById("themeToggle");
-        themeBtn.onclick = () => document.body.classList.toggle("dark");
+        themeBtn.onclick = () => {
+            document.body.classList.toggle("dark");
+            themeBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+        };
 
-        // LANGUAGE TOGGLE
+        // LANGUAGE TOGGLE [cite: 86, 87, 88]
         let currentLang = "en";
         const langBtn = document.getElementById("langToggle");
         langBtn.onclick = () => {
             currentLang = currentLang === "en" ? "vi" : "en";
             langBtn.textContent = currentLang.toUpperCase();
             document.querySelectorAll("[data-en]").forEach(el => {
-                el.textContent = el.dataset[currentLang];
+                if (el.dataset[currentLang]) {
+                    el.textContent = el.dataset[currentLang];
+                }
             });
         };
 
-        // STICKY NAV [cite: 31]
+        // STICKY NAV [cite: 89]
         const stickyNav = document.getElementById("stickyNav");
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 220) {
+            if (window.scrollY > 250) {
                 stickyNav.classList.add("show");
             } else {
                 stickyNav.classList.remove("show");
+            }
+        });
+
+        // CURSOR LIGHT [cite: 104]
+        const light = document.getElementById("cursorLight");
+        document.addEventListener("mousemove", e => {
+            light.style.left = e.clientX + "px";
+            light.style.top = e.clientY + "px";
+        });
+
+        // SCROLL REVEAL [cite: 105]
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add("show");
+                    }, i * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+        // MAGNETIC CARDS EFFECT [cite: 106]
+        document.querySelectorAll(".roadmap-card").forEach(card => {
+            card.addEventListener("mousemove", e => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `rotateX(${y * -10}deg) rotateY(${x * 10}deg) translateY(-5px)`;
+            });
+            card.addEventListener("mouseleave", () => {
+                card.style.transform = "rotateX(0) rotateY(0) translateY(0)";
+            });
+        });
+
+        // PAGE FADE ON CLICK [cite: 106]
+        document.querySelectorAll("a").forEach(link => {
+            if (link.target !== "_blank") {
+                link.addEventListener("click", () => {
+                    document.body.style.opacity = "0";
+                    document.body.style.transition = "0.5s";
+                });
             }
         });
     </script>
